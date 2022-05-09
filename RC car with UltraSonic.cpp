@@ -42,9 +42,9 @@ void loop() {
 
   get_distance();
 
-  if(cm>80){
+  if(cm>30){                
 
-  digitalWrite(Motor_Right_Speed,HIGH);
+  digitalWrite(Motor_Right_Speed,HIGH); //go forward
 
   digitalWrite(Motor_Right_Dir,LOW);
 
@@ -52,13 +52,21 @@ void loop() {
 
   digitalWrite(Motor_Left_Dir,LOW);
 
-  delay(500);
+  delay(250);
 
   }
 
-  if (cm<=80){
+  if (cm<=30){
+    digitalWrite(Motor_Right_Speed,LOW);   //stop
 
-    digitalWrite(Motor_Right_Speed,HIGH);
+    digitalWrite(Motor_Right_Dir,LOW);
+
+    digitalWrite(Motor_Left_Speed,LOW);
+
+    digitalWrite(Motor_Left_Dir,LOW);
+    delay(500);
+    
+    digitalWrite(Motor_Right_Speed,HIGH); //turn left
 
     digitalWrite(Motor_Right_Dir,LOW);
 
